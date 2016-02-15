@@ -1,0 +1,325 @@
+/* Reset */
+
+html, body {
+    height: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0.67rem 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 0.83rem 0;
+}
+
+h3 {
+    font-size: 1.17rem;
+    margin: 1rem 0;
+}
+
+h4 {
+    font-size: 1rem;
+    margin: 1.33rem 0;
+}
+
+h5 {
+    font-size: 0.83rem;
+    margin: 1.67rem 0;
+}
+
+h6 {
+    font-size: 0.75rem;
+    margin: 2.33rem 0;
+}
+
+/* Generic */
+
+body.dark-background {
+    background-color: #333333;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.btn-default {
+    background-color: #888888;
+    border-color: #888888;
+    box-shadow: 0 0.3em 0 0 #333333;
+    color: #222222;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+}
+
+.btn-default:hover, .btn-default:visited, .btn-default:focus {
+    color: #FFFFFF;
+    background: #666666;
+    outline: none;
+}
+
+.btn-primary {
+    background: #EA4F53;
+    border-color: #EA4F53;
+    box-shadow: 0 3px 0 0 #C4272B;
+    color: #FFFFFF;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+}
+
+.btn-primary:hover, .btn-primary:visited, .btn-primary:focus {
+    color: #FFFFFF;
+    background: #F66064;
+    border-color: #EA4f53;
+    outline: none;
+}
+
+.btn:active, .btn.active {
+    box-shadow: none;
+    margin-bottom: -0.3rem;
+    margin-top: 0.3rem;
+    outline: none;
+}
+
+.input-group {
+    margin: 1rem 0;
+}
+
+::-webkit-input-placeholder {
+    color: #CCCCCC;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+:-moz-placeholder {
+    /* older Firefox */
+    color: #CCCCCC;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #CCCCCC;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+:-ms-input-placeholder {
+    color: #CCCCCC;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+a, a:visited, a:hover {
+    color: #FA787E;
+    text-decoration: underline;
+}
+
+form input .ng-invalid.ng-touched {
+    background: #FA787E url(../img/invalid.png) no-repeat 98% center;
+}
+
+form input.ng-valid.ng-touched {
+    background: #78FA89 url(../img/valid.png) no-repeat 98% center;
+}
+
+.navbar {
+    background-color: #3A3C41;
+    height: 2rem;
+}
+
+/* Radial Graph */
+
+.radial-graph-wrapper {
+  width: 10rem; /* Set the size of the progress bar */
+  height: 10rem;
+  position: absolute; /* Enable clipping */
+  clip: rect(0, 10rem, 10rem, 5rem); /* Hide half of the progress bar */
+}
+/* Set the sizes of the elements that make up the progress bar */
+.radial-graph-circle {
+  width: 8rem;
+  height: 8rem;
+  border: 1rem solid green;
+  border-radius: 5rem;
+  position: absolute;
+  clip: rect(0, 5rem, 10rem, 0);
+}
+/* Using the data attributes for the animation selectors. */
+/* Base settings for all animated elements */
+div[data-anim~=base] {
+  -webkit-animation-iteration-count: 1;  /* Only run once */
+  -webkit-animation-fill-mode: forwards; /* Hold the last keyframe */
+  -webkit-animation-timing-function:linear; /* Linear animation */
+}
+
+.radial-graph-wrapper[data-anim~=wrapper] {
+  -webkit-animation-duration: 0.01s; /* Complete keyframes asap */
+  -webkit-animation-delay: 3s; /* Wait half of the animation */
+  -webkit-animation-name: close-wrapper; /* Keyframes name */
+}
+
+.radial-graph-circle[data-anim~=left] {
+  -webkit-animation-duration: 6s; /* Full animation time */
+  -webkit-animation-name: left-spin;
+}
+
+.radial-graph-circle[data-anim~=right] {
+  -webkit-animation-duration: 3s; /* Half animation time */
+  -webkit-animation-name: right-spin;
+}
+/* Rotate the right side of the progress bar from 0 to 180 degrees */
+@-webkit-keyframes right-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(180deg);
+  }
+}
+/* Rotate the left side of the progress bar from 0 to 360 degrees */
+@-webkit-keyframes left-spin {
+  from {
+    -webkit-transform: rotate(50deg);
+  }
+  to {
+    -webkit-transform: rotate(310deg);
+  }
+}
+/* Set the wrapper clip to auto, effectively removing the clip */
+@-webkit-keyframes close-wrapper {
+  to {
+    clip: rect(auto, auto, auto, auto);
+  }
+}
+
+/* Progress graph */
+
+.bar {
+  background: #C4C4DD;
+  position: relative;
+  height: 2rem;
+  width: 80%;
+  margin: 0 auto;
+  text-align: left
+}
+
+.progress {
+  position: absolute;
+  height: 100%;
+  transition: width .4s ease-in;
+  z-index: 1;
+}
+
+.progress-good {
+    background-color: #85E170;
+    width: 80%;
+}
+
+.progress-bad {
+    background-color: #F39F01;
+    width: 20%;
+}
+
+.dot {
+    background-color: #FFFFFF;
+    float: left;
+    height: 2rem;
+    margin-left: 16%;
+    position: relative;
+    width: 5%;
+    z-index: 2;
+}
+
+/* Colour wheel */
+
+.colour-wheel {
+    background:
+            linear-gradient(36deg, rgb(190, 31, 32) 42.34%, transparent 42.34%) 0 0,
+            linear-gradient(72deg, rgb(241,153,55) 75.48%, transparent 75.48%) 0 0,
+            linear-gradient(-36deg, rgb(14,157,76) 42.34%, transparent 42.34%) 100% 0,
+            linear-gradient(-72deg, rgb(153, 199, 104) 75.48%, transparent 75.48%) 100% 0,
+            linear-gradient(-360deg, transparent 100%, #fff 24.52%) 100% 100%,
+            linear-gradient(72deg, rgb(251,211,11) 75.48%, transparent 75.48%) 0 0;
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    border-radius: 50% 50% 0 0 ;
+    height: 14rem;
+    margin: 0 auto;
+    position: relative;
+    transition: 1s;
+    width: 14rem;
+}
+
+.colour-wheel:after {
+    content: '';
+    background: #989889;
+    border-radius: 50%;
+    height: 4rem;
+    margin: -2rem;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 4rem;
+}
+
+/* Login specific */
+.panel-info .panel-heading {
+    background: #EA4F53 url(../img/mse-logo.png) no-repeat center;
+    border-radius: 0;
+    height: 7rem;
+}
+
+.panel {
+    border: 0;
+    border-radius: 0;
+}
+
+.panel-body {
+    padding: 1rem 3rem;
+}
+
+#newAccount, #signin {
+    margin-top: 5rem;
+}
+
+.panel-body header {
+    color: #000000;
+    letter-spacing: 0;
+    font-weight: bold;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+/* Dashboard specific */
+
+aside {
+    background-color: #3A3C41;
+    color: #FFFFFF;
+    height: 100%;
+    padding: 2rem;
+    position: relative;
+}
+
+#dashboard {
+    background-color: #F0F0F0;
+}
+
+.module {
+    background-color: #FFFFFF;
+    border-radius: 0.25rem;
+    padding: 2rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.module-fixed-height-sm {
+    min-height: 9rem;
+}
+
+.module-fixed-height-lg {
+    min-height: 40rem;
+}

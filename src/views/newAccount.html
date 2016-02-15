@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app-data="creditClubApp" ng-strict-di>
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--[if IE]><link rel="shortcut icon" href="../img/favicon.ico"><![endif]-->
+    <link rel="icon" href="../img/favicon.png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <title>MSE.com - Your credit report, your way</title>
+
+    <base href="/">
+</head>
+
+<body class="dark-background">
+<div class="container text-center" ng-controller="UserController">
+    <div id="newAccount" class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-info">
+            <div class="panel-heading"></div>
+            <div class="panel-body">
+                <header class="text-uppercase">Create your MSE account</header>
+                <form name="signup-form" class="form-horizontal"  ng-submit="submitForm()" novalidate form-autofill-fix>
+                    <div class="input-group col-xs-12 col-sm-12">
+                        <input type="text" class="form-control" ng-model="user.firstname" ng-minlength="2" ng-required=”true” required name="firstname" autocomplete="false" value="" placeholder="First Name">
+                    </div>
+                    <div class="input-group col-xs-12 col-sm-12">
+                        <input type="text" class="form-control" ng-model="user.surname" ng-minlength="2" required name="surname" value="" placeholder="Surname">
+                    </div>
+                    <div class="input-group col-xs-12 col-sm-12">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <input type="email" class="form-control" ng-model="user.email" required placeholder="E-mail Address">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"></i></span>
+                                <input  type="password" class="form-control" ng-model="user.pass1" ng-minlength="4" required name="password" placeholder="Password" >
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 ">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"></i></span>
+                                <input id="login-password" type="password" class="form-control" ng-model="user.pass2" ng-minlength="4" ng-pattern="user.pass1" required name="confirm-password" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="user.terms" ng-required="true" value="1">I have read &amp; I agree to <a href="#">Terms & Conditions</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary btn-block" ng-disabled="signup-form.$invalid">NEXT STEP</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap.min.js"></script>
+<script src="../js/newAccount.js"></script>
+
+</body>
+</html>
